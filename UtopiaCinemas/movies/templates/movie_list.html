@@ -1,0 +1,21 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Movie List{% endblock %}
+
+{% block content %}
+    <h2>Movie List</h2>
+    <div class="row">
+        {% for movie in movies %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ movie.image.url }}" class="card-img-top" alt="{{ movie.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ movie.title }}</h5>
+                        <p class="card-text">{{ movie.genre }}</p>
+                        <a href="{% url 'movie_detail' movie.id %}" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

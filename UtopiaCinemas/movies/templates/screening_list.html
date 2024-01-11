@@ -1,0 +1,27 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Screening List{% endblock %}
+
+{% block content %}
+    <h2>Screening List</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Movie</th>
+            <th>Auditorium</th>
+            <th>Start Time</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for screening in screenings %}
+            <tr>
+                <td>{{ screening.movie.title }}</td>
+                <td>{{ screening.auditorium.name }}</td>
+                <td>{{ screening.start_time }}</td>
+                <td><a href="{% url 'screening_detail' screening.id %}" class="btn btn-primary">Details</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

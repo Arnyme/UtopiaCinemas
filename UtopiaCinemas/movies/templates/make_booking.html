@@ -1,0 +1,22 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Make Booking{% endblock %}
+
+{% block content %}
+    <h2>Make Booking</h2>
+    <p><strong>Movie:</strong> {{ screening.movie.title }}</p>
+    <p><strong>Auditorium:</strong> {{ screening.auditorium.name }}</p>
+    <p><strong>Start Time:</strong> {{ screening.start_time }}</p>
+
+    <form method="post" action="{% url 'make_booking' screening.id %}">
+        {% csrf_token %}
+        <label for="selected_seats">Select Seats:</label>
+        <select name="selected_seats" id="selected_seats" multiple>
+            {% for seat in seats %}
+                <option value="{{ seat.id }}">{{ seat.row }}-{{ seat.position }} ({{ seat.type }} - {{ seat.status }})</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit" class="btn btn-primary">Book Now</button>
+    </form>
+{% endblock %}

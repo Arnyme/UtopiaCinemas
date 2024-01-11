@@ -1,0 +1,15 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}{{ screening.movie.title }} Screening Details{% endblock %}
+
+{% block content %}
+    <h2>{{ screening.movie.title }} Screening</h2>
+    <p><strong>Auditorium:</strong> {{ screening.auditorium.name }}</p>
+    <p><strong>Start Time:</strong> {{ screening.start_time }}</p>
+    <p><strong>Seats:</strong>
+        {% for seat in screening.seats.all %}
+            {{ seat.row }}-{{ seat.position }} ({{ seat.type }} - {{ seat.status }}){% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+    <a href="{% url 'make_booking' screening.id %}" class="btn btn-primary">Book Now</a>
+{% endblock %}

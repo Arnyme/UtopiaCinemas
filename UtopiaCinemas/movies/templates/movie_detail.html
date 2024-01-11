@@ -1,0 +1,20 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}{{ movie.title }} Details{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ movie.image.url }}" class="img-fluid" alt="{{ movie.title }}">
+        </div>
+        <div class="col-md-6">
+            <h2>{{ movie.title }}</h2>
+            <p><strong>Genre:</strong> {{ movie.genre }}</p>
+            <p><strong>Language:</strong> {{ movie.language }}</p>
+            <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+            <p><strong>Price:</strong> ${{ movie.price }}</p>
+            <p><strong>Rating:</strong> {{ movie.rating }}</p>
+            <p><strong>Reviews:</strong> {{ movie.reviews }}</p>
+        </div>
+    </div>
+{% endblock %}
