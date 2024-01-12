@@ -5,36 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e7c56c7-1bd1-4237-86a6-37e8db0e925c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/SchoolProjects.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/UtopiaCinemas/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/UtopiaCinemas/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/UtopiaCinemas/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/UtopiaCinemas/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/UtopiaCinemas/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/db.sqlite3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/templates/layout/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/templates/layout/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/templates/layout/navbar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/templates/make_booking.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/templates/movie_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/templates/movie_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/templates/screening_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/templates/screening_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UtopiaCinemas/movies/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UtopiaCinemas/movies/movies_images/the_hunger_games.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UtopiaCinemas/movies/movies_images/the_hunger_games_6sRYxwC.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +22,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/UtopiaCinemas" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -62,15 +35,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "1.1__create__requirement__file",
+    "ignore.virus.scanning.warn.message": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
