@@ -1,5 +1,5 @@
-# from django.contrib import admin
-# from .models import Genre, Movie, SeatType, Seat, Branch, CinemaHall, Showtime, PriceList, Ticket
+from django.contrib import admin
+from .models import Movie
 #
 #
 # class GenreAdmin(admin.ModelAdmin):
@@ -9,7 +9,12 @@
 # class MovieAdmin(admin.ModelAdmin):
 #     list_display = ('title', 'release_date', 'image_url')
 #     search_fields = ('title', 'synopsis')
-#
+
+
+class MovieAdmin(admin.ModelAdmin):
+    list_display = ('title', 'genre', 'language', 'price', 'rating', 'image')
+
+
 #
 # class SeatTypeAdmin(admin.ModelAdmin):
 #     list_display = ('name',)
@@ -47,7 +52,7 @@
 #
 # # Register all models for the admin interface
 # admin.site.register(Genre, GenreAdmin)
-# admin.site.register(Movie, MovieAdmin)
+admin.site.register(Movie, MovieAdmin)
 # admin.site.register(SeatType, SeatTypeAdmin)
 # admin.site.register(Seat, SeatAdmin)
 # admin.site.register(Branch, BranchAdmin)
