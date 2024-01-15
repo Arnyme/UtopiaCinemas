@@ -3,19 +3,21 @@
 {% block title %}Movie List{% endblock %}
 
 {% block content %}
-    <h2>Movie List</h2>
-    <div class="row">
-        {% for movie in movies %}
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="{{ movie.image.url }}" class="card-img-top" alt="{{ movie.title }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ movie.title }}</h5>
-                        <p class="card-text">{{ movie.genre }}</p>
-                        <a href="{% url 'movie_detail' movie.id %}" class="btn btn-primary">Details</a>
-                    </div>
+<h2>Now Showing</h2>
+<div class="row">
+    {% for movie in movies %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <a href="{% url 'movie_detail' movie.id %}" class="btn btn-grey">
+                <img src="{{ movie.image.url }}" class="card-img-top" alt="{{ movie.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.title }}</h5>
+                    <p class="card-text">{{ movie.genre }}</p>
                 </div>
-            </div>
-        {% endfor %}
+            </a>
+            <a href="{% url 'screening_list' %}">Book Now</a>
+        </div>
     </div>
+    {% endfor %}
+</div>
 {% endblock %}

@@ -14,7 +14,8 @@
             <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
             <p><strong>Price:</strong> ${{ movie.price }}</p>
             <p><strong>Rating:</strong> {{ movie.rating }}</p>
-            <p><strong>Reviews:</strong> {{ movie.reviews }}</p>
+            <p><strong>Synopsis:</strong> {{ movie.synopsis }}</p>
+            <a href="{% url 'screening_list' %}">Book Ticket</a>
         </div>
     </div>
 {% endblock %}
