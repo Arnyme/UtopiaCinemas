@@ -65,3 +65,9 @@ def calculate_total_price(selected_seats, screening):
         return base_price * 1.2  # Increase the price by 20% for evening screenings
     else:
         return base_price  # Keep the base price for non-peak screenings
+
+
+def movie_detail(request, movie_id):
+    movie = get_object_or_404(Movie, pk=movie_id)
+    screenings = Screening.objects.filter(movie=movie)
+    return render(request, 'screening_list.html', {'screenings': screenings, 'selected_movie': movie})
