@@ -1,62 +1,53 @@
 from django.contrib import admin
-from .models import Movie
-#
-#
-# class GenreAdmin(admin.ModelAdmin):
-#     list_display = ('name',)
-#
-#
-# class MovieAdmin(admin.ModelAdmin):
-#     list_display = ('title', 'release_date', 'image_url')
-#     search_fields = ('title', 'synopsis')
+from .models import Movie, Auditorium, Screening, Seat, Booking
+
+
+class ScreeningInline(admin.TabularInline):
+    model = Screening
+    extra = 1
+
+
+class SeatInline(admin.TabularInline):
+    model = Seat
+    extra = 1
+
+
+class BookingInline(admin.TabularInline):
+    model = Booking
+    extra = 1
 
 
 class MovieAdmin(admin.ModelAdmin):
-    list_display = ('title', 'genre', 'language', 'price', 'rating', 'image')
+    list_display = ('title', 'genre', 'language', 'release_date', 'price', 'rating')
+    search_fields = ('title', 'genre', 'language')
+    inlines = [ScreeningInline]
 
 
-#
-# class SeatTypeAdmin(admin.ModelAdmin):
-#     list_display = ('name',)
-#
-#
-# class SeatAdmin(admin.ModelAdmin):
-#     list_display = ('row', 'number', 'seat_type', 'available')
-#     list_filter = ('seat_type', 'available')
-#
-#
-# class BranchAdmin(admin.ModelAdmin):
-#     list_display = ('name',)
-#
-#
-# class CinemaHallAdmin(admin.ModelAdmin):
-#     list_display = ('name', 'branch', 'capacity')
-#     list_filter = ('branch',)
-#
-#
-# class ShowtimeAdmin(admin.ModelAdmin):
-#     list_display = ('movie', 'date', 'time', 'cinema_hall')
-#     list_filter = ('movie', 'cinema_hall')
-#
-#
-# class PriceListAdmin(admin.ModelAdmin):
-#     list_display = ('seat_type', 'day', 'price')
-#     list_filter = ('seat_type', 'day')
-#
-#
-# class TicketAdmin(admin.ModelAdmin):
-#     list_display = ('showtime', 'user', 'price', 'status', 'booking_time')
-#     list_filter = ('showtime', 'user', 'status')
-#     readonly_fields = ('booking_time',)  # Make booking_time read-only
-#
-#
-# # Register all models for the admin interface
-# admin.site.register(Genre, GenreAdmin)
+class AuditoriumAdmin(admin.ModelAdmin):
+    list_display = ('name', 'seats', 'location')
+    search_fields = ('name', 'location')
+
+
+class ScreeningAdmin(admin.ModelAdmin):
+    list_display = ('movie', 'auditorium', 'start_time', 'base_price')
+    search_fields = ('movie__title', 'auditorium__name')
+    inlines = [SeatInline]
+
+
+class SeatAdmin(admin.ModelAdmin):
+    list_display = ('row', 'position', 'type', 'status', 'screening')
+    list_filter = ('type', 'status')
+    search_fields = ('screening__movie__title',)
+
+
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ('user', 'screening', 'total', 'is_paid', 'is_cancelled', 'created_at', 'updated_at')
+    list_filter = ('is_paid', 'is_cancelled')
+    search_fields = ('user__username', 'screening__movie__title')
+
+
 admin.site.register(Movie, MovieAdmin)
-# admin.site.register(SeatType, SeatTypeAdmin)
-# admin.site.register(Seat, SeatAdmin)
-# admin.site.register(Branch, BranchAdmin)
-# admin.site.register(CinemaHall, CinemaHallAdmin)
-# admin.site.register(Showtime, ShowtimeAdmin)
-# admin.site.register(PriceList, PriceListAdmin)
-# admin.site.register(Ticket, TicketAdmin)
+admin.site.register(Auditorium, AuditoriumAdmin)
+admin.site.register(Screening, ScreeningAdmin)
+admin.site.register(Seat, SeatAdmin)
+admin.site.register(Booking, BookingAdmin)

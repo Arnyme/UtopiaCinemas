@@ -19,7 +19,7 @@
                 <td>{{ screening.movie.title }}</td>
                 <td>{{ screening.auditorium.name }}</td>
                 <td>{{ screening.start_time }}</td>
-                <td><a href="{% url 'screening_detail' screening.id %}" class="btn btn-primary">Details</a></td>
+                <td><a href="{% url 'screening_detail' screening.id %}" class="btn btn-primary">Select time</a></td>
             </tr>
         {% endfor %}
         </tbody>

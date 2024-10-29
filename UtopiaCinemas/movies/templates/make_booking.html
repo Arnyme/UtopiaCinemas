@@ -8,15 +8,49 @@
     <p><strong>Auditorium:</strong> {{ screening.auditorium.name }}</p>
     <p><strong>Start Time:</strong> {{ screening.start_time }}</p>
 
-    <form method="post" action="{% url 'make_booking' screening.id %}">
-        {% csrf_token %}
-        <label for="selected_seats">Select Seats:</label>
-        <select name="selected_seats" id="selected_seats" multiple>
+    <!-- Display the seat map using Bootstrap grid system -->
+    <div class="container">
+        <div class="row">
             {% for seat in seats %}
-                <option value="{{ seat.id }}">{{ seat.row }}-{{ seat.position }} ({{ seat.type }} - {{ seat.status }})</option>
+                <div class="col-2 mb-3">
+                    <button class="btn seat {% if seat.status == 'Booked' %}btn-danger{% elif seat.status == 'Available' %}btn-success{% endif %}"
+                            data-seat-id="{{ seat.id }}" {% if seat.status == 'Available' %}onclick="selectSeat('{{ seat.id }}')"{% endif %}>
+                        {{ seat.row }}-{{ seat.position }}
+                    </button>
+                </div>
             {% endfor %}
-        </select>
+        </div>
+    </div>
 
-        <button type="submit" class="btn btn-primary">Book Now</button>
+    <!-- Hidden form to store selected seats -->
+    <form id="seat-selection-form" method="post" action="{% url 'make_booking' screening.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="selected_seats" id="selected-seats-input">
+        <button type="submit" class="btn btn-primary" id="proceed-to-payment" style="display: none;">Proceed to Payment</button>
     </form>
+
+    <!-- JavaScript to handle seat selection -->
+    <script>
+        var selectedSeats = [];
+
+        function selectSeat(seatId) {
+            var seatButton = document.querySelector('[data-seat-id="' + seatId + '"]');
+            seatButton.classList.toggle('btn-success');
+            seatButton.classList.toggle('btn-danger');
+
+            // Update selected seats array
+            if (selectedSeats.includes(seatId)) {
+                selectedSeats = selectedSeats.filter(id => id !== seatId);
+            } else {
+                selectedSeats.push(seatId);
+            }
+
+            // Update the hidden input field with selected seats
+            document.getElementById('selected-seats-input').value = JSON.stringify(selectedSeats);
+
+            // Show/hide proceed to payment button based on selected seats
+            var proceedButton = document.getElementById('proceed-to-payment');
+            proceedButton.style.display = selectedSeats.length > 0 ? 'block' : 'none';
+        }
+    </script>
 {% endblock %}

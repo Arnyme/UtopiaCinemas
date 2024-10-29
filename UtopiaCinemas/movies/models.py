@@ -13,9 +13,9 @@ class Movie(models.Model):
     language = models.CharField(max_length=50)  # The language of the movie
     release_date = models.DateField()  # The release date of the movie
     price = models.DecimalField(max_digits=6, decimal_places=2)  # The price of the movie ticket
-    image = models.ImageField(upload_to='movies/movies_images')  # The image of the movie poster
+    image = models.ImageField(upload_to='movies_images/')  # The image of the movie poster
     rating = models.FloatField()  # The average rating of the movie
-    reviews = models.TextField()  # The reviews of the movie
+    synopsis = models.TextField()  # The synopsis of the movie
 
     # Define the string representation of the Movie model
     def __str__(self):
